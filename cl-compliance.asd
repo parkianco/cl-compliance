@@ -3,7 +3,7 @@
 
 (asdf:defsystem #:cl-compliance
   :description "KYC/AML Compliance Framework for Common Lisp - verification, rule engine, audit"
-  :author "CLPIC Contributors"
+  :author "Parkian Company LLC"
   :license "BSD-3-Clause"
   :version "0.1.0"
   :serial t

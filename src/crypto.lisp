@@ -93,8 +93,14 @@
                                  (s0 (logxor (sha256-rotr a 2) (sha256-rotr a 13) (sha256-rotr a 22)))
                                  (maj (logxor (logand a b) (logand a c) (logand b c)))
                                  (temp2 (ldb (byte 32 0) (+ s0 maj))))
-                            (setf h g g f f e (ldb (byte 32 0) (+ d temp1))
-                                  d c c b b a a (ldb (byte 32 0) (+ temp1 temp2)))))
+                            (setf h g
+                                 g f
+                                 f e
+                                 e (ldb (byte 32 0) (+ d temp1))
+                                 d c
+                                 c b
+                                 b a
+                                 a (ldb (byte 32 0) (+ temp1 temp2)))))
 
                  (setf h0 (ldb (byte 32 0) (+ h0 a))
                        h1 (ldb (byte 32 0) (+ h1 b))

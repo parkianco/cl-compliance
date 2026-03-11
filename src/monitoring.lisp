@@ -74,8 +74,8 @@
 ;;; Monitor Operations
 ;;; ============================================================================
 
-(defun make-transaction-monitor (&key config)
-  "Create a new transaction monitor."
+(defun create-transaction-monitor (&key config)
+  "Create a new transaction monitor with default settings."
   (make-transaction-monitor
    :rules (make-hash-table :test 'equal)
    :alerts (make-hash-table :test 'equal)

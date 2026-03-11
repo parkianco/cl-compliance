@@ -1,0 +1,41 @@
+;;;; cl-compliance.asd - KYC/AML Compliance Framework
+;;;; Standalone ASDF system definition
+
+(asdf:defsystem #:cl-compliance
+  :description "KYC/AML Compliance Framework for Common Lisp - verification, rule engine, audit"
+  :author "CLPIC Contributors"
+  :license "BSD-3-Clause"
+  :version "0.1.0"
+  :serial t
+  :depends-on ()
+  :components
+  ((:file "package")
+   (:module "src"
+    :serial t
+    :components
+    ((:file "conditions")
+     (:file "util")
+     (:file "crypto")
+     (:file "identity")
+     (:file "verification")
+     (:file "documents")
+     (:file "sanctions")
+     (:file "monitoring")
+     (:file "rules")
+     (:file "audit")
+     (:file "reporting"))))
+  :in-order-to ((test-op (test-op #:cl-compliance/test))))
+
+(asdf:defsystem #:cl-compliance/test
+  :description "Tests for cl-compliance"
+  :depends-on (#:cl-compliance)
+  :components
+  ((:module "test"
+    :serial t
+    :components
+    ((:file "package")
+     (:file "identity-test")
+     (:file "verification-test")
+     (:file "rules-test"))))
+  :perform (test-op (o c)
+             (symbol-call :cl-compliance.test :run-all-tests)))

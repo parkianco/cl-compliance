@@ -38,4 +38,6 @@
      (:file "verification-test")
      (:file "rules-test"))))
   :perform (test-op (o c)
-             (symbol-call :cl-compliance.test :run-all-tests)))
+             (let ((result (symbol-call :cl-compliance.test :run-all-tests)))
+               (unless result
+                 (error "Tests failed")))))

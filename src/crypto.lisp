@@ -22,7 +22,7 @@
 ;;; SHA-256 Implementation (Simplified)
 ;;; ============================================================================
 
-(defconstant +sha256-k+
+(defvar +sha256-k+
   #(#x428a2f98 #x71374491 #xb5c0fbcf #xe9b5dba5
     #x3956c25b #x59f111f1 #x923f82a4 #xab1c5ed5
     #xd807aa98 #x12835b01 #x243185be #x550c7dc3

@@ -1,24 +1,7 @@
 ;;;; cl-compliance - Test Package
 ;;;; Test suite for compliance framework
 
-(defpackage #:cl-compliance-test
-  (:use #:cl #:cl-compliance)
-  (:export
-   ;; Test runner
-   #:run-all-tests
-   #:run-test
-
-   ;; Test suites
-   #:test-identity
-   #:test-verification
-   #:test-documents
-   #:test-sanctions
-   #:test-monitoring
-   #:test-rules
-   #:test-audit
-   #:test-reporting))
-
-(in-package #:cl-compliance-test)
+(in-package #:cl-compliance.test)
 
 ;;; ============================================================================
 ;;; Test Infrastructure

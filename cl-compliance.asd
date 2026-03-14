@@ -1,3 +1,6 @@
+;; Copyright (c) 2024-2026 Parkian Company LLC. All rights reserved.
+;; SPDX-License-Identifier: BSD-3-Clause
+
 ;;;; cl-compliance.asd - KYC/AML Compliance Framework
 ;;;; Standalone ASDF system definition
 
@@ -24,7 +27,7 @@
      (:file "rules")
      (:file "audit")
      (:file "reporting"))))
-  :in-order-to ((test-op (test-op #:cl-compliance/test))))
+  :in-order-to ((asdf:test-op (test-op #:cl-compliance/test))))
 
 (asdf:defsystem #:cl-compliance/test
   :description "Tests for cl-compliance"
@@ -37,7 +40,7 @@
      (:file "identity-test")
      (:file "verification-test")
      (:file "rules-test"))))
-  :perform (test-op (o c)
-             (let ((result (symbol-call :cl-compliance.test :run-all-tests)))
+  :perform (asdf:test-op (o c)
+             (let ((result (uiop:symbol-call :cl-compliance.test :run-all-tests)))
                (unless result
                  (error "Tests failed")))))
